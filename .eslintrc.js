@@ -1,10 +1,11 @@
 module.exports = {
   root: true,
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', '@babel'],
   extends: [
     '@react-native-community',
     'airbnb-typescript',
     'plugin:@typescript-eslint/recommended',
+    'plugin:@babel/plugin-syntax-jsx',
     'prettier',
     'prettier/@typescript-eslint',
     'prettier/react',
@@ -15,6 +16,11 @@ module.exports = {
     jest: true,
   },
   parserOptions: {
+	babelOptions": {
+      "plugins": [
+        "@babel/plugin-proposal-class-properties"
+      ],
+    },
     project: './tsconfig.json',
   },
   rules: {

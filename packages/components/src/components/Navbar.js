@@ -73,18 +73,18 @@ function Navbar({navigation}) {
               <div
                 className='nav-links-mobile'
                 onClick={()=>{
-					navigation.push('SignUp')
+					navigation.push('SignIn')
 					closeMobileMenu()
 				}}
               >
-                Sign Up
+                Sign In
               </div>
             </li>
           </ul>
           {button && <Button onClick={()=>{
-					navigation.push('SignUp')
+					navigation.push('SignIn')
 					closeMobileMenu()
-				}} buttonStyle='btn--outline'>SIGN UP</Button>}
+				}} buttonStyle='btn--outline'>SIGN IN</Button>}
         </div>
       </nav>
     </>

@@ -1,42 +1,55 @@
 import React, { useState, useEffect } from 'react'
-import { observable, action, computed } from 'mobx'
 
 class User {
-  @observable name = ''
-  @observable email = ''
-  @observable isAuthenticated = false
-  @observable personal = {
+  name = localStorage.getItem('username') ? localStorage.getItem('username') : ''
+  email = localStorage.getItem('useremail') ? localStorage.getItem('useremail') : ''
+  isAuthenticated = localStorage.getItem('isAuthenticated') ? localStorage.getItem('isAuthenticated') : false
+  personal = {
     avatarUrl: '',
   }
   
-  @action login(email, password){
-	  const doFake = faker(email, password);
+  login(email, password){
+	  const doFake = this.faker(email, password);
 	  if(doFake){
 		  this.name = 'Test user';
+		  localStorage.setItem('username', this.name);
 	  }
+	  return this;
   }
   
-  @action register(email, password){
-	  const doFake = faker(email, password);
+  register(email, password){
+	  const doFake = this.faker(email, password);
 	  if(doFake){
 		  this.name = 'Test user';
+		  localStorage.setItem('username', this.name);
 	  }
+	  return this;
   }
   
-  @action faker(email, password){
-	  const nameTrue = name == 'test@test.ru' || name == 'test2@test.ru';
+  faker(email, password){
+	  const nameTrue = email == 'test@test.ru' || name == 'test2@test.ru';
 	  const passwordTrue = password == '123456789';
 	  if(nameTrue && passwordTrue){
 		  this.isAuthenticated = true;
+		  this.email = email;
+		  localStorage.setItem('isAuthenticated', this.isAuthenticated);
+		  localStorage.setItem('useremail', this.email);
 		  return true;
 	  } else {
 		  this.isAuthenticated = false;
+		  localStorage.setItem('isAuthenticated', this.isAuthenticated);
+		  localStorage.setItem('useremail', '');
+		  localStorage.setItem('username', '');
 		  return false;
 	  }
   }
   
-  @action logOut(){
+  logOut(){
 	   this.isAuthenticated = false;
+	   localStorage.setItem('isAuthenticated', this.isAuthenticated);
+	   localStorage.setItem('useremail', '');
+	   localStorage.setItem('username', '');
+	   return this;
   }
   
 }
