@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {StyleSheet, View} from 'react-native';
 
 import {Heading} from '../Heading';
@@ -9,6 +9,7 @@ import {IconButton} from '../IconButton';
 import {AuthContainer} from '../AuthContainer';
 import {Loading} from '../Loading';
 import Navbar from '../Navbar';
+import User from '../../store/User';
 
 function SignUp({navigation}) {
   

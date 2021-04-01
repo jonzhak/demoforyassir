@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 import './Navbar.css';
+import User from '../store/User';
 
 function Navbar({navigation}) {
   const [click, setClick] = useState(false);
@@ -81,10 +82,18 @@ function Navbar({navigation}) {
               </div>
             </li>
           </ul>
-          {button && <Button onClick={()=>{
-					navigation.push('SignIn')
-					closeMobileMenu()
-				}} buttonStyle='btn--outline'>SIGN IN</Button>}
+          {button && <Button 
+				onClick={()=>{
+						if(User.isAuthenticated){
+							navigation.push('Profile')
+							closeMobileMenu()
+						} else {
+							navigation.push('SignIn')
+							closeMobileMenu()
+						}
+					}
+				} 
+				buttonStyle='btn--outline'>{User.isAuthenticated ? 'PROFILE' : 'SIGN IN'}</Button>}
         </div>
       </nav>
     </>
