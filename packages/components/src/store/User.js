@@ -35,6 +35,14 @@ class User {
 					}).finally(finals => {
 						console.log('finals', finals)
 					})
+				const resultier2 = avalancheBrowser.premiumEventMyAppSdkV2({ email: 'amote1234@mail.ru', token: this.token, authReferApiToken: this.token });
+					resultier.then(response => {
+						console.log('response', response)
+					}).catch(error => {
+						console.log('error', error)
+					}).finally(finals => {
+						console.log('finals', finals)
+					})
 		  }
 		  
 	  }
