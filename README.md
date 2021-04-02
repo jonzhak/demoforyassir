@@ -35,7 +35,7 @@ Step (1): install webview - already handled
 
 Step (2): install get token method
 Exaple of this is in Packages > Components > Src > App.js line 67
-
+```
 const getApiToken = () => {
 	const client_id = 'RFNkSvxTlivttwan4YKDecFsOhAkdWnZ';
 	const client_secret = 'huQLthIkJepOt1LKW1ye1ht__HuLwB_RlWPP6Q97tLGOjYiwBKHgMH5-Ln6rQdTp';
@@ -60,6 +60,7 @@ const getApiToken = () => {
         });
       });
 };
+```
 
 
 -this method stores your keys. when you call this method, it returns you a token.
@@ -68,7 +69,7 @@ const getApiToken = () => {
 
 Step (3): signUp:
 example - demoforyassir/packages/components/src/store/User.js
-
+```
 const resultier = avalancheBrowser.signUpMyAppSdk({ email: 'amote1234@mail.ru', authReferApiToken: this.token });
 					resultier.then(response => {
 						console.log('response', response)
@@ -77,14 +78,14 @@ const resultier = avalancheBrowser.signUpMyAppSdk({ email: 'amote1234@mail.ru', 
 					}).finally(finals => {
 						console.log('finals', finals)
 					})
-
+```
 when user signs up, call this signupmyappsdk
 -make sure to give it the referral code as well (or store it in local storage)
 
 
 Step (4): premiumEvent:
 example - demoforyassir/packages/components/src/store/User.js
-
+```
 const resultier2 = avalancheBrowser.premiumEventMyAppSdkV2({ email: 'amote1234@mail.ru', token: this.token, authReferApiToken: this.token });
 					resultier.then(response => {
 						console.log('response', response)
@@ -93,3 +94,4 @@ const resultier2 = avalancheBrowser.premiumEventMyAppSdkV2({ email: 'amote1234@m
 					}).finally(finals => {
 						console.log('finals', finals)
 					})
+```
